@@ -8,9 +8,7 @@ LIFF.install = function (Vue) {
         console.error("LIFF v2 SDK was not found.")
         return
     }
-    window.liff.init({
-        liffId: "1656225814-84e21G6Q"
-    })
+    window.liff.init({liffId: process.env.VUE_APP_LIFF_ID})
     if (!window.liff.isLoggedIn() && location.hash !== "#/") {
         location.href = "#/"
     }
