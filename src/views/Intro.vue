@@ -8,7 +8,7 @@
         {{ $t('intro.subtitle') }}
       </v-card-subtitle>
       <v-img class="mx-auto white rounded-circle" src="@/assets/logo.png" width="100px"/>
-      <v-btn :disabled="!ready" class="blue darken-3 white--text my-9" rounded x-large @click="communicate">
+      <v-btn :disabled="!$store.state.ready" class="blue darken-3 white--text my-9" rounded x-large @click="communicate">
         {{ $t('intro.communicate') }}
       </v-btn>
     </v-card>
@@ -24,17 +24,7 @@
 <script>
 export default {
   name: "Intro",
-  data:()=>({
-    ready: null
-  }),
   methods: {
-    checkReady() {
-      if (this.$liff) {
-        this.ready = true
-        return
-      }
-      setTimeout(this.checkReady, 500)
-    },
     communicate() {
       if (this.$liff.isLoggedIn()) {
         this.$emit('active', 1)
@@ -42,9 +32,6 @@ export default {
         this.$liff.login(location.href)
       }
     }
-  },
-  created() {
-    this.checkReady()
   }
 }
 </script>

@@ -43,9 +43,19 @@ export default {
     active: 0
   }),
   methods: {
+    checkReady() {
+      if (this.$liff) {
+        this.$store.commit("setReady")
+        return
+      }
+      setTimeout(this.checkReady, 500)
+    },
     updateActive(active) {
       this.active = active;
     }
   },
+  created() {
+    this.checkReady()
+  }
 };
 </script>
