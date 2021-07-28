@@ -3,12 +3,12 @@ import Vue from 'vue'
 class LIFF {
 }
 
-LIFF.install = function (Vue) {
+LIFF.install = async function (Vue) {
     if (!window.liff) {
         console.error("LIFF v2 SDK was not found.")
         return
     }
-    window.liff.init({liffId: process.env.VUE_APP_LIFF_ID})
+    await window.liff.init({liffId: process.env.VUE_APP_LIFF_ID})
     if (!window.liff.isLoggedIn() && location.hash !== "#/") {
         location.href = "#/"
     }

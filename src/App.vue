@@ -24,11 +24,11 @@
 </template>
 
 <script>
-import Intro from './components/Intro';
-import User from './components/User';
-import List from './components/List';
-import Chat from './components/Chat';
-import Manage from './components/Manage';
+import Intro from './views/Intro';
+import User from './views/Register';
+import List from './views/Dashboard';
+import Chat from './views/Chat';
+import Manage from './views/Manage';
 
 export default {
   name: 'App',
