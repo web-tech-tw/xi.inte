@@ -1,4 +1,4 @@
-# template.inte
+# xi.inte
 
 前端 Web 通用模板
 
