@@ -1,27 +1,14 @@
-module.exports = {
+const {defineConfig} = require('@vue/cli-service')
+
+module.exports = defineConfig({
     pages: {
         index: {
-            title: 'XI',
+            title: 'XI - Web Tech TW',
             entry: 'src/main.js',
             template: 'public/index.html',
             filename: 'index.html',
         }
     },
-
-    devServer: {
-        disableHostCheck: true
-    },
-
-    transpileDependencies: [
-        'vuetify'
-    ],
-
-    pluginOptions: {
-        i18n: {
-            locale: 'en',
-            fallbackLocale: 'en',
-            localeDir: 'locales',
-            enableInSFC: false
-        }
-    }
-}
+    publicPath: process.env.NODE_ENV === 'production' ? '/xi.inte/' : '/',
+    transpileDependencies: true
+})
